@@ -1,0 +1,44 @@
+---
+import HeroText from "../assets/hero.svg";
+
+---
+
+<div class="w-full flex flex-col items-center justify-center mt-72">
+    <HeroText id="hero-text"/>
+</div>
+
+<style>
+    #hero-text {
+        color: var(--color-olive-900);
+        stroke-width: 1px;
+        fill: transparent;
+        transition: fill 1.25s ease;
+    }
+</style>
+
+<script>
+    const heroText = document.querySelector<SVGSVGElement>('#hero-text');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!heroText) return;
+        
+        startStroke(heroText);
+    });
+
+    function startStroke(element: SVGSVGElement) {
+        let count = 0;
+
+        const strokeInterval = setInterval(() => {
+            element.setAttribute('stroke-dasharray', `${count} ${50 - count}`);
+            
+            count++;
+
+            if (count == 40) element.style.fill = 'var(--color-olive-900)';
+
+            if (count >= 50) {
+                element.removeAttribute('stroke-dasharray');
+                clearInterval(strokeInterval);
+            };
+        }, 25);
+    }
+</script>

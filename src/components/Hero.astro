@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+import layer1 from "../assets/parallax/1.svg";
+import layer2 from "../assets/parallax/2.svg";
+import layer3 from "../assets/parallax/3.svg";
+import layer4 from "../assets/parallax/4.svg";
+import layer5 from "../assets/parallax/5.svg";
+import layer6 from "../assets/parallax/6.svg";
+import Headline from "./Headline.astro";
+import ParallaxImage from "./ParallaxImage.astro";
+
+---
+
+<div class="flex flex-col relative bg-linear-0 from-cream-100 to-cream-500 h-screen">
+    <div 
+        class="bottom-0 h-screen w-screen relative overflow-y-hidden" 
+        id="hero-parallax">
+        <ParallaxImage src={layer6} parallaxSpeed="75"  />
+        <ParallaxImage src={layer5} parallaxSpeed="60" />
+        <ParallaxImage src={layer4} parallaxSpeed="45" />
+        <ParallaxImage src={layer3} parallaxSpeed="30" />
+        <Headline data-parallax-speed="20" />
+        <ParallaxImage src={layer2} parallaxSpeed="15" />
+        <ParallaxImage src={layer1} />
+    </div>
+</div>
+
+<script>
+    const parallaxElems = document.querySelectorAll<HTMLElement>('#hero-parallax *')
+    
+    window.addEventListener('scroll', () => {
+        parallaxElems.forEach((layer) => {
+            const speed = parseFloat(layer.dataset.parallaxSpeed ?? '0');
+            const yAdjustment = (scrollY * speed / 100);
+
+            layer.style.transform = `translate3d(0px, ${yAdjustment}px, 0px)`;
+        });
+    }, { passive: true });
+</script>

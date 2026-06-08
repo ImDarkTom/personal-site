@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+    --color-cream-50: oklch(0.991 0.004 91.27);
+    --color-cream-100: oklch(0.976 0.012 91.46);
+    --color-cream-200: oklch(0.879 0.06 93.53);
+    --color-cream-300: oklch(0.791 0.053 93.81);
+    --color-cream-400: oklch(0.698 0.047 94.59);
+    --color-cream-500: oklch(0.603 0.04 93.49);
+    --color-cream-600: oklch(0.509 0.035 95.15);
+    --color-cream-700: oklch(0.413 0.028 93.59);
+    --color-cream-800: oklch(0.328 0.022 96.56);
+    --color-cream-900: oklch(0.231 0.015 89.91);
+    --color-cream-950: oklch(0.178 0.012 91.79);
+
+    --color-olive-50: oklch(0.963 0.028 128.73);
+    --color-olive-100: oklch(0.916 0.061 128.77);
+    --color-olive-200: oklch(0.848 0.057 129.7);
+    --color-olive-300: oklch(0.772 0.052 129.76);
+    --color-olive-400: oklch(0.694 0.048 129.84);
+    --color-olive-500: oklch(0.625 0.042 128.51);
+    --color-olive-600: oklch(0.549 0.038 130.04);
+    --color-olive-700: oklch(0.472 0.032 128.21);
+    --color-olive-800: oklch(0.404 0.028 129.24);
+    --color-olive-900: oklch(0.327 0.022 129.22);
+    --color-olive-950: oklch(0.232 0.016 129.24);
+}
+
+body {
+    @apply bg-olive-900 text-cream-100;
+}

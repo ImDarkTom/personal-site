@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+const { src, parallaxSpeed, ...attrs } = Astro.props;
+---
+
+<Image 
+    src={src} 
+    alt=""
+    loading="eager"
+    decoding="auto"
+    data-parallax-speed={parallaxSpeed}
+    {...attrs} />
+
+<style>
+    img {
+        position: absolute;
+        bottom: 0;
+    }
+</style>
