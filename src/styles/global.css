@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+    --font-inter: var(--font-inter);
+}
+
 @theme {
     --color-cream-50: oklch(0.991 0.004 91.27);
     --color-cream-100: oklch(0.976 0.012 91.46);

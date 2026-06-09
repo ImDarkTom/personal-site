@@ -1,0 +1,43 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+
+---
+
+<div 
+    class="w-full max-w-5xl mx-auto relative" 
+    id="timeline">
+    <ul class="grid grid-cols-2 gap-2">
+        <TimelineItem
+            year="2026"
+            title="Mórchlár"
+            description="Collaborative team project tracking tool with GitHub integration, built with the help of 3 teammates."
+            link="https://www.morchlar.com/"
+            tags={[ 'Nuxt', 'Postgres', 'Auth', 'Realtime', 'Collaboration'  ]}
+            github="https://github.com/Morchlar/Morchlar" />
+
+        <TimelineItem
+            year="2025"
+            title="LlamaPen"
+            description="A no-install-needed, feature-packed web-GUI for Ollama, a local LLM model runner."
+            link="https://llamapen.app/"
+            tags={[ 'Vue', 'TailwindCSS', 'IndexedDB', 'PWA', 'Docker'  ]}
+            github="https://github.com/ImDarkTom/LlamaPen"
+            stars="450" />
+
+        <TimelineItem
+            year="2025"
+            title="ConvoCraft (HackIreland 2025)"
+            description="Built by a 4-person team at an overnight hackathon, an app that allowed users to upload documents and have them explained via personalised analogies."
+            link="https://t6-convocraft.vercel.app/"
+            tags={[ 'React', 'Vite', 'Google OAuth', 'JWT', 'MongoDB'  ]}
+            github="https://github.com/SeanXC/team6" />
+
+        <TimelineItem
+            year="2024"
+            title="ComfyUI Mini"
+            description="A lightweight and mobile-friendly interface to run ComfyUI workflows."
+            tags={[ 'NodeJS', 'EJS', 'Express.js', 'WebSocket'  ]}
+            github="https://github.com/ImDarkTom/ComfyUIMini"
+            stars="375" />
+    </ul>
+</div>

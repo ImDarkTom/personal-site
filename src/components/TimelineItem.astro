@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    year: string;
+    title: string;
+    description: string;
+    link?: string;
+    tags: string[];
+    github?: string;
+    stars?: string;
+}
+
+const { year, title, description, link, tags, github, stars } = Astro.props;
+---
+
+<li class="border border-cream-50 p-4 rounded-lg relative">
+    <p class="text-cream-300">{year}</p>
+    <div class="flex flex-row justify-between">
+        <h1 class="text-2xl font-semibold">
+            { link 
+                ? 
+                <a 
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:underline">
+                    {title}↗
+                </a> 
+                : title
+            }
+        </h1>
+
+        <div class="inline-flex items-center gap-3">
+            { stars && <div class="inline-flex items-center gap-1 text-sm font-medium">
+                <Icon name="mdi:star" class="text-yellow-300" />
+                <span>{stars}</span>
+            </div> }
+
+            { github && <a 
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer">
+                <Icon name="mdi:github" class="size-8" />
+            </a> }
+        </div>
+    </div>
+    <p class="pt-1 pb-2">{description}</p>
+    <ul class="flex flex-row gap-2 overflow-y-auto">
+        {tags.map((tag) => (
+            <li class="bg-olive-800 rounded-full px-2.5 p-1 text-sm ring ring-olive-700/50">{tag}</li>
+        ))}
+    </ul>
+</li>
