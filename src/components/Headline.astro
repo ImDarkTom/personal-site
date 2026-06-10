@@ -3,18 +3,12 @@ import HeroText from "../assets/hero.svg";
 
 ---
 
-<div class="w-full flex flex-col items-center justify-center mt-72">
-    <HeroText id="hero-text"/>
+<div class="text-olive-900 w-full flex flex-col items-center justify-center mt-60">
+    <HeroText
+        class="fill-transparent stroke-[1px] transition-[fill] duration-1250 ease-in"
+        id="hero-text"/>
+    <span class="[&_b]:text-olive-600">Hi, I'm a <b>UX-oriented</b> full-stack developer</span>
 </div>
-
-<style>
-    #hero-text {
-        color: var(--color-olive-900);
-        stroke-width: 1px;
-        fill: transparent;
-        transition: fill 1.25s ease;
-    }
-</style>
 
 <script>
     const heroText = document.querySelector<SVGSVGElement>('#hero-text');

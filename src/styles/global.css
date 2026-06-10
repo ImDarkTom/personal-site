@@ -2,6 +2,7 @@
 
 @theme inline {
     --font-inter: var(--font-inter);
+    --font-viga: var(--font-viga);
 }
 
 @theme {
@@ -28,6 +29,10 @@
     --color-olive-800: oklch(0.404 0.028 129.24);
     --color-olive-900: oklch(0.327 0.022 129.22);
     --color-olive-950: oklch(0.232 0.016 129.24);
+}
+
+html {
+    scroll-behavior: smooth
 }
 
 body {

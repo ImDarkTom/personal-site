@@ -1,17 +1,25 @@
 ---
 import About from '../components/About.astro';
 import Hero from '../components/Hero.astro';
-import ProjectsTimeline from '../components/ProjectsTimeline.astro';
+import Projects from '../components/Projects.astro';
+import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 
 ---
 
 <Layout>
+	<Navbar />
 	<Hero />
 	<div class="min-h-screen p-4 pt-16 font-inter">
 		<About />
 
-		<ProjectsTimeline />
+		<Projects />
+
+		<Contact />
+
+		<Footer />
 
 		<!-- <a href="https://www.vecteezy.com/free-vector/tree-line">Tree Line Vectors by Vecteezy</a> -->
 		<!-- https://www.vecteezy.com/vector-art/9302818-vector-autumn-horizontal-landscape-with-fog-forest-spruce-fir-and-morning-sunlight-fall-season-illustration-of-panoramic-view-silhouette-mist-and-mountains-fire-in-the-woods -->

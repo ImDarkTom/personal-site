@@ -12,7 +12,9 @@ import ParallaxImage from "./ParallaxImage.astro";
 
 ---
 
-<div class="flex flex-col relative bg-linear-0 from-cream-100 to-cream-500 h-screen">
+<section 
+    class="flex flex-col relative bg-linear-0 from-cream-100 to-cream-500 h-screen"
+    id="hero">
     <div 
         class="bottom-0 h-screen w-screen relative overflow-y-hidden" 
         id="hero-parallax">
@@ -20,11 +22,13 @@ import ParallaxImage from "./ParallaxImage.astro";
         <ParallaxImage src={layer5} parallaxSpeed="60" />
         <ParallaxImage src={layer4} parallaxSpeed="45" />
         <ParallaxImage src={layer3} parallaxSpeed="30" />
+
         <Headline data-parallax-speed="20" />
+
         <ParallaxImage src={layer2} parallaxSpeed="15" />
         <ParallaxImage src={layer1} />
     </div>
-</div>
+</section>
 
 <script>
     const parallaxElems = document.querySelectorAll<HTMLElement>('#hero-parallax *')
