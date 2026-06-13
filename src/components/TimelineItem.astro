@@ -40,7 +40,8 @@ const { year, title, description, link, tags, github, stars } = Astro.props;
             { github && <a 
                 href={github}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                aria-label="GitHub Link">
                 <Icon name="mdi:github" class="size-8" />
             </a> }
         </div>
