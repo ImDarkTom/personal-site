@@ -7,14 +7,9 @@ const { src, parallaxSpeed, ...attrs } = Astro.props;
 <Image 
     src={src} 
     alt=""
+    class="absolute bottom-0"
     loading="eager"
     decoding="auto"
+    draggable="false"
     data-parallax-speed={parallaxSpeed}
     {...attrs} />
-
-<style>
-    img {
-        position: absolute;
-        bottom: 0;
-    }
-</style>

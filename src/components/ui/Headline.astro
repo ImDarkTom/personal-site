@@ -1,22 +1,29 @@
 ---
-import HeroText from "../assets/hero.svg";
+import HeroText from "../../assets/hero.svg";
 
 ---
 
-<div class="text-olive-900 w-full flex flex-col items-center justify-center mt-72">
+<div
+    id="headline"
+    class="text-olive-900 w-full flex flex-col items-center justify-center mt-[28vh] invisible">
     <HeroText
-        class="fill-transparent stroke-[1px] transition-[fill] duration-1250 ease-in"
+        class="fill-transparent stroke-1 transition-[fill] duration-1250 ease-in"
         id="hero-text"/>
-    <span class="[&_b]:text-olive-600">Hi, I'm a <b>UX-oriented</b> full-stack developer</span>
+    <span 
+        class="[&_b]:text-olive-600 font-medium ">
+        Hi, I'm a <b>UX-oriented</b> full-stack developer
+    </span>
 </div>
 
 <script>
     const heroText = document.querySelector<SVGSVGElement>('#hero-text');
+    const headline = document.querySelector<HTMLDivElement>('#headline');
 
     document.addEventListener('DOMContentLoaded', () => {
-        if (!heroText) return;
-        
+        if (!heroText || !headline) return;
+
         startStroke(heroText);
+        headline.classList.remove('invisible');
     });
 
     function startStroke(element: SVGSVGElement) {
