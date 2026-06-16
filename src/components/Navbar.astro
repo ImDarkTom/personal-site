@@ -1,37 +1,23 @@
 ---
-
+import Favicon from "../../public/favicon.svg";
+import NavbarItem from "./ui/NavbarItem.astro";
 ---
 
-<div class="fixed w-full z-10 flex justify-center mt-2">
-    <nav class="bg-olive-800 inline-flex gap-4 py-2 px-4 ring ring-inset ring-olive-700 rounded-full">
-        <a 
-            class="tracking-tighter font-black"
-            href="#hero">
-            TM
-        </a>
-        <a href="#about">
+<header class="fixed w-full z-10 flex justify-center mt-4">
+    <nav class="bg-olive-800 inline-flex gap-4 p-2.5 ring ring-inset ring-olive-700 rounded-xl shadow-olive-950 shadow-sm">
+        <NavbarItem 
+            href="#hero" 
+            class="hover:brightness-125">
+            <Favicon class="size-6" />
+        </NavbarItem>
+        <NavbarItem href="#about">
             About
-        </a>
-        <a href="#projects">
+        </NavbarItem>
+        <NavbarItem href="#projects">
             Projects
-        </a>
-        <a href="#contact">
+        </NavbarItem>
+        <NavbarItem href="#contact">
             Contact
-        </a>
+        </NavbarItem>
     </nav>
-</div>
-
-<style>
-    nav a {
-        cursor: pointer;
-    }
-
-    nav a:hover {
-        color: var(--color-olive-200) !important;
-        text-decoration: underline;
-    }
-</style>
-
-<script>
-
-</script>
+</header>
