@@ -1,45 +1,55 @@
 ---
 import HeroText from "../../assets/hero.svg";
-
 ---
 
 <div
     id="headline"
-    class="text-olive-900 w-full flex flex-col items-center justify-center mt-[28vh] invisible">
-    <HeroText
-        class="max-w-full px-4 md:px-0 fill-transparent stroke-1 transition-[fill] duration-1250 ease-in"
-        id="hero-text"/>
+    class="text-olive-900 w-full flex flex-col items-center justify-center mt-[28vh]">
+    <HeroText class="max-w-full px-4 md:px-0" id="hero-text"/>
     <span 
-        class="[&_b]:text-olive-600 font-medium ">
+        class="[&_b]:text-olive-600 font-medium" 
+        id="hero-subtitle">
         Hi, I'm a <b>UX-oriented</b> full-stack developer
     </span>
 </div>
 
-<script>
-    const heroText = document.querySelector<SVGSVGElement>('#hero-text');
-    const headline = document.querySelector<HTMLDivElement>('#headline');
-
-    document.addEventListener('DOMContentLoaded', () => {
-        if (!heroText || !headline) return;
-
-        startStroke(heroText);
-        headline.classList.remove('invisible');
-    });
-
-    function startStroke(element: SVGSVGElement) {
-        let count = 0;
-
-        const strokeInterval = setInterval(() => {
-            element.setAttribute('stroke-dasharray', `${count} ${50 - count}`);
-            
-            count++;
-
-            if (count == 40) element.style.fill = 'var(--color-olive-900)';
-
-            if (count >= 50) {
-                element.removeAttribute('stroke-dasharray');
-                clearInterval(strokeInterval);
-            };
-        }, 25);
+<style>
+    #hero-text {
+        fill: transparent;
+        stroke: var(--color-olive-900);
+        stroke-width: 1;
+        animation:
+            draw 1000ms steps(50) forwards,
+            fill 250ms ease-in 750ms forwards;
     }
-</script>
+
+    @keyframes draw {
+        from { stroke-dasharray: 0 50; }
+        to   { stroke-dasharray: 50 0; }
+    }
+
+    @keyframes fill {
+        to { fill: var(--color-olive-900); }
+    }
+
+    #hero-subtitle {
+        opacity: 0;
+        animation: appear 500ms ease-in 500ms forwards;
+    }
+
+    @keyframes appear {
+        to   { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #hero-text {
+            animation: none;
+            fill: var(--color-olive-900);
+        }
+
+        #hero-subtitle {
+            opacity: 1;
+            animation: none;
+        }
+    }
+</style>
