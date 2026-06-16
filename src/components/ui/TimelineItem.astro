@@ -5,7 +5,7 @@ interface Props {
     year: string;
     title: string;
     description: string;
-    link?: string;
+    link: string;
     tags: string[];
     github?: string;
     stars?: string;
@@ -18,17 +18,14 @@ const { year, title, description, link, tags, github, stars } = Astro.props;
     <p class="text-cream-300">{year}</p>
     <div class="flex flex-row justify-between">
         <h1 class="text-2xl font-semibold">
-            { link 
-                ? 
-                <a 
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:underline">
-                    {title}↗
-                </a> 
-                : title
-            }
+            <a 
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline hover:text-olive-200 cursor-pointer inline-flex">
+                {title}
+                <Icon name="mdi:launch" class="size-4" />
+            </a> 
         </h1>
 
         <div class="inline-flex items-center gap-3">
