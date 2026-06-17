@@ -1,52 +1,60 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import ExternalLink from "../shared/ExternalLink.astro";
 
 interface Props {
     year: string;
     title: string;
-    description: string;
-    link: string;
     tags: string[];
+    description: string;
+    image?: ImageMetadata;
+    live?: string;
     github?: string;
-    stars?: string;
 }
 
-const { year, title, description, link, tags, github, stars } = Astro.props;
+const { year, title, image, description, live, tags, github } = Astro.props;
 ---
 
-<li class="border border-cream-50 p-4 rounded-lg relative">
-    <p class="text-cream-300">{year}</p>
-    <div class="flex flex-row justify-between">
-        <h1 class="text-2xl font-semibold">
-            <a 
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline hover:text-olive-200 cursor-pointer inline-flex">
-                {title}
-                <Icon name="mdi:launch" class="size-4" />
-            </a> 
-        </h1>
-
-        <div class="inline-flex items-center gap-3">
-            { stars && <div class="inline-flex items-center gap-1 text-sm font-medium">
-                <Icon name="mdi:star" class="text-yellow-300" />
-                <span>{stars}</span>
-            </div> }
-
-            { github && <a 
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Link">
-                <Icon name="mdi:github" class="size-8" />
-            </a> }
+<li class="flex flex-row ring ring-cream-500 rounded-lg relative">
+    { image && 
+        <Image 
+            src={image}
+            class="max-w-88 h-auto rounded-l-lg border-r border-cream-500"
+            alt={`Preview for ${title}`} />
+    }
+    <div class="flex flex-col p-4">
+        <p class="text-cream-300">{year}</p>
+        <h3 class="text-xl font-semibold">
+            {title}
+        </h3>
+        <p class="pt-1 pb-2 text-sm text-cream-200">{description}</p>
+        <ul class="flex flex-row flex-wrap gap-2 overflow-y-auto">
+            {tags.map((tag) => (
+                <li class="bg-olive-800 rounded-full px-2.5 p-1 text-xs font-medium ring ring-inset ring-olive-700">
+                    {tag}
+                </li>
+            ))}
+        </ul>
+        <div class="flex flex-row gap-3 mt-4">
+            { live &&
+                <ExternalLink 
+                    href={live} 
+                    class="text-olive-200 inline-flex items-center">
+                    <Icon name="mdi:internet" class="mr-1" />
+                    <span>Live</span>
+                    <Icon name="mdi:launch" class="size-3 mb-auto mt-1 ml-0.5" />
+                </ExternalLink>
+            }
+            { github && 
+                <ExternalLink
+                    href={github}
+                    class="text-cream-200 inline-flex items-center">
+                    <Icon name="mdi:github" class="mr-1" />
+                    <span>Source</span>
+                    <Icon name="mdi:launch" class="size-3 mb-auto mt-1 ml-0.5" />
+                </ExternalLink>
+            }
         </div>
     </div>
-    <p class="pt-1 pb-2">{description}</p>
-    <ul class="flex flex-row gap-2 overflow-y-auto">
-        {tags.map((tag) => (
-            <li class="bg-olive-800 rounded-full px-2.5 p-1 text-sm ring ring-olive-700/50">{tag}</li>
-        ))}
-    </ul>
 </li>

@@ -1,44 +1,50 @@
 ---
 import TimelineItem from "../ui/TimelineItem.astro";
+import morchlarPreview from "../../assets/previews/morchlar.webp";
+import llamapenPreview from "../../assets/previews/llamapen.webp";
+import convocraftPreview from "../../assets/previews/convocraft.webp";
+import comfyuiminiPreview from "../../assets/previews/comfyuimini.webp";
 
 ---
 
 <section 
-    class="w-full max-w-5xl mx-auto relative" 
+    class="w-full max-w-3xl mx-auto relative" 
     id="projects">
-    <ul class="grid grid-cols-2 gap-2">
+    <h2 class="mb-1">Projects</h2>
+
+    <ul class="flex flex-col gap-4">
         <TimelineItem
             year="2026"
             title="Mórchlár"
+            image={morchlarPreview}
             description="Collaborative team project tracking tool with GitHub integration, built with the help of 3 teammates."
-            link="https://www.morchlar.com/"
+            live="https://www.morchlar.com/"
             tags={[ 'Nuxt', 'Postgres', 'Auth', 'Realtime', 'Collaboration'  ]}
             github="https://github.com/Morchlar/Morchlar" />
 
         <TimelineItem
             year="2025"
             title="LlamaPen"
-            description="A no-install-needed, feature-packed web-GUI for Ollama, a local LLM model runner."
-            link="https://llamapen.app/"
+            image={llamapenPreview}
+            description="A no-install-needed, feature-packed web-GUI for Ollama, a local LLM model runner. Over 450 GitHub stars."
+            live="https://llamapen.app/"
             tags={[ 'Vue', 'TailwindCSS', 'IndexedDB', 'PWA', 'Docker'  ]}
-            github="https://github.com/ImDarkTom/LlamaPen"
-            stars="450" />
+            github="https://github.com/ImDarkTom/LlamaPen"/>
 
         <TimelineItem
             year="2025"
             title="ConvoCraft (HackIreland 2025)"
+            image={convocraftPreview}
             description="Built by a 4-person team at an overnight hackathon, an app that allowed users to upload documents and have them explained via personalised analogies."
-            link="https://t6-convocraft.vercel.app/"
             tags={[ 'React', 'Vite', 'Google OAuth', 'JWT', 'MongoDB'  ]}
             github="https://github.com/SeanXC/team6" />
 
         <TimelineItem
             year="2024"
             title="ComfyUI Mini"
-            description="A lightweight and mobile-friendly interface to run ComfyUI workflows."
-            link="https://github.com/ImDarkTom/ComfyUIMini"
+            image={comfyuiminiPreview}
+            description="A lightweight and mobile-friendly interface to run ComfyUI workflows. Over 375 GitHub stars."
             tags={[ 'NodeJS', 'EJS', 'Express.js', 'WebSocket'  ]}
-            github="https://github.com/ImDarkTom/ComfyUIMini"
-            stars="375" />
+            github="https://github.com/ImDarkTom/ComfyUIMini" />
     </ul>
 </section>

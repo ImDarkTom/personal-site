@@ -43,3 +43,7 @@ html,
 body {
     @apply m-0 p-0 size-full font-inter;
 }
+
+h2 {
+    @apply text-xl;
+}

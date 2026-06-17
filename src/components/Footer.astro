@@ -1,18 +1,24 @@
 ---
+import ExternalLink from "./shared/ExternalLink.astro";
+
 
 ---
 
-<footer class="flex flex-row justify-between bg-linear-0 from-olive-950 p-8">
-    <div class="flex flex-col">
-        <span>© 2026 Thomas Malinovsky</span>
-        <a href="https://github.com/ImDarkTom/personal-site">Source on GitHub</a>
-    </div>
-    <div>
-        <a 
-        href="https://www.vecteezy.com/vector-art/9302818-vector-autumn-horizontal-landscape-with-fog-forest-spruce-fir-and-morning-sunlight-fall-season-illustration-of-panoramic-view-silhouette-mist-and-mountains-fire-in-the-woods"
-        target="_blank"
-        rel="noopener noreferrer">
-        Hero Image Source
-    </a>
+<footer class="flex flex-col gap-4 p-8">
+    <div class="w-full bg-cream-200 h-px"></div>
+    
+    <div class="flex flex-row justify-between">
+        <div class="flex flex-col">
+            <span>© 2026 Thomas Malinovsky</span>
+            <ExternalLink href="https://github.com/ImDarkTom/personal-site">
+                Source on GitHub
+            </ExternalLink>
+        </div>
+        <div>
+            <ExternalLink
+                href="https://www.vecteezy.com/vector-art/9302818-vector-autumn-horizontal-landscape-with-fog-forest-spruce-fir-and-morning-sunlight-fall-season-illustration-of-panoramic-view-silhouette-mist-and-mountains-fire-in-the-woods">
+                Hero Image Source
+            </ExternalLink>
+        </div>
     </div>
 </footer>

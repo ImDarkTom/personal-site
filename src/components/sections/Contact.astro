@@ -1,7 +1,47 @@
 ---
+import { Icon } from "astro-icon/components";
+import ExternalLink from "../shared/ExternalLink.astro";
 
 ---
 
-<section id="contact">
-    Contact: tba
+<section
+    id="contact"
+    class="w-full max-w-prose mx-auto pb-8">
+    <h2>Contact</h2>
+
+    <div class="bg-olive-800 rounded-full my-2 px-2.5 p-1 ring ring-inset ring-olive-700/50 w-fit text-sm font-medium">
+        Available June - August
+    </div>
+
+    <p>
+        I'm currently a college student studying CS and am open to summer interships, freelance work,
+        or any interesting projects to build. The best way to contact me is via email.
+    </p>
+
+    <ul 
+        class="inline-flex gap-2 mt-4"
+        id="contact-items">
+        <a href="mailto:thomas@malinovsky.dev">
+            <Icon name="mdi:email-outline" />
+            <span>thomas@malinovsky.dev</span>
+        </a>
+
+        <ExternalLink href="https://github.com/ImDarkTom">
+            <Icon name="mdi:github" />
+            <span>GitHub</span>
+        </ExternalLink>
+
+        <ExternalLink href="https://www.linkedin.com/in/thomasmalinovsky/">
+            <Icon name="mdi:linkedin" />
+            <span>LinkedIn</span>
+        </ExternalLink>
+    </ul>
 </section>
+
+<style>
+    @reference "../../styles/global.css";
+
+    #contact-items a {
+        @apply bg-olive-700 flex flex-row gap-2 items-center text-sm p-2 rounded-lg ring ring-olive-600 ring-inset cursor-pointer select-none;
+    }
+</style>
