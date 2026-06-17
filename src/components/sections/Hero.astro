@@ -11,10 +11,10 @@ import ParallaxImage from "../ui/ParallaxImage.astro";
 ---
 
 <section 
-    class="flex flex-col relative bg-linear-0 from-cream-100 to-cream-500 h-screen"
+    class="flex flex-col relative overflow-hidden bg-linear-0 from-cream-100 to-cream-500 h-screen"
     id="hero">
     <div 
-        class="bottom-0 h-screen w-screen relative overflow-y-hidden" 
+        class="bottom-0 h-screen w-full relative overflow-hidden" 
         id="hero-parallax">
         <ParallaxImage src={layer6} parallaxSpeed="75"  />
         <ParallaxImage src={layer5} parallaxSpeed="60" />

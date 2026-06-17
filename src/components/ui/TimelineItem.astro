@@ -17,11 +17,11 @@ interface Props {
 const { year, title, image, description, live, tags, github } = Astro.props;
 ---
 
-<li class="flex flex-row ring ring-cream-500 rounded-lg relative">
+<li class="flex flex-col md:flex-row ring ring-cream-500 rounded-lg relative">
     { image && 
         <Image 
             src={image}
-            class="max-w-88 h-auto rounded-l-lg border-r border-cream-500"
+            class="w-full md:max-w-88 h-auto rounded-t-lg border-b border-cream-500 md:rounded-l-lg md:border-r"
             alt={`Preview for ${title}`} />
     }
     <div class="flex flex-col p-4">
