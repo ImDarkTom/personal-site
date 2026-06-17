@@ -12,7 +12,7 @@
     </defs>
 
 
-    <rect width="200" height="200" rx="32" fill="url(#bg-grad)"/>
+    <rect width="200" height="200" fill="url(#bg-grad)"/>
     <text 
         x="100" y="110" 
         font-size="100" 

@@ -8,14 +8,12 @@ import '../styles/global.css'
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Thomas Malinovsky</title>
+		<title>404 Not Found | Thomas Malinovsky</title>
 
 		<meta name="description" content="Hi, I'm a UX-oriented full-stack developer based in Dublin, Ireland.">
 		<meta name="author" content="Thomas Malinovsky">
-		<meta name="robots" content="index, follow">
+		<meta name="robots" content="noindex, follow">
 		<meta name="theme-color" content="#31372b">
-
-		<link rel="canonical" href="https://malinovsky.dev">
 
 		<meta name="og:type" content="website">
 		<meta name="og:site_name" content="Thomas Malinovsky">
@@ -38,7 +36,7 @@ import '../styles/global.css'
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable='--font-inter' preload />
 	</head>
-	<body class="bg-olive-900 text-cream-100">
+	<body class="bg-cream-100 text-olive-900">
 		<slot />
 	</body>
 </html>

@@ -1,10 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import ExternalLink from "../shared/ExternalLink.astro";
+import ExternalIcon from "../shared/ExternalIcon.astro";
 
 ---
 
-<section id="contact" class="w-full pb-8">
+<section id="contact" class="w-full pb-32 pt-4">
     <h2>Contact</h2>
 
     <div class="bg-olive-800 rounded-full my-2 px-2.5 p-1 ring ring-inset ring-olive-700/50 w-fit text-sm font-medium">
@@ -12,7 +13,7 @@ import ExternalLink from "../shared/ExternalLink.astro";
     </div>
 
     <p>
-        I'm currently a college student studying CS and am open to summer interships, freelance work,
+        I'm currently in college studying CS and am open to summer internships, freelance work,
         or any interesting projects to build. The best way to contact me is via email.
     </p>
 
@@ -40,6 +41,6 @@ import ExternalLink from "../shared/ExternalLink.astro";
     @reference "../../styles/global.css";
 
     #contact-items a {
-        @apply bg-olive-700 flex flex-row gap-2 items-center text-sm p-2 rounded-lg ring ring-olive-600 ring-inset cursor-pointer select-none;
+        @apply bg-olive-700 flex flex-row gap-2 items-center text-sm p-2 rounded-lg ring ring-olive-600 ring-inset cursor-pointer select-none hover:bg-olive-600 transition-colors duration-200;
     }
 </style>

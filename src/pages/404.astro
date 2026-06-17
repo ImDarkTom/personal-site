@@ -1,0 +1,17 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout404 from "../layouts/Layout404.astro";
+
+
+---
+
+<Layout404>
+    <div class="w-fit flex flex-col items-start mx-auto pt-[40vh]">
+        <h1 class="text-4xl font-black">404 Not Found</h1>
+        <p class="text-olive-700">The page you were looking for does not exist.</p>
+        <a href="/" class="bg-olive-800 text-cream-100 px-4 py-2 mt-2 rounded-lg inline-flex items-center justify-center gap-2 hover:bg-olive-700 transition-colors duration-150">
+            <Icon name="mdi:arrow-left" />
+            Back
+        </a>
+    </div>
+</Layout404>
