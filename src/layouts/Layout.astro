@@ -1,6 +1,8 @@
 ---
 import { Font } from 'astro:assets'
 import '../styles/global.css'
+
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <!doctype html>
@@ -37,6 +39,7 @@ import '../styles/global.css'
 
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable='--font-inter' preload />
+		<Analytics />
 	</head>
 	<body class="bg-olive-900 text-cream-100">
 		<slot />
