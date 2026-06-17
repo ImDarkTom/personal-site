@@ -32,7 +32,8 @@
 }
 
 html {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
 }
 
 body {
@@ -45,5 +46,5 @@ body {
 }
 
 h2 {
-    @apply text-xl;
+    @apply text-xl mb-1;
 }
