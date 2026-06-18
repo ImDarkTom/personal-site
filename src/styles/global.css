@@ -1,9 +1,8 @@
 @import "tailwindcss";
-@source inline("fill-olive-900");
+@source inline("fill-olive-900"); /* Always bundle headline fill color */
 
 @theme inline {
     --font-inter: var(--font-inter);
-    --font-viga: var(--font-viga);
 }
 
 @theme {

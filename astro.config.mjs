@@ -18,11 +18,7 @@ export default defineConfig({
       cssVariable: "--font-inter",
       weights: ["100 900"],
     },
-    {
-        provider: fontProviders.fontsource(),
-        name: "Viga",
-        cssVariable: '--font-viga',
-    }
+    // 'Viga' if we ever decide to have the headline text be actual text and not an SVG
   ],
 
   integrations: [icon()],
