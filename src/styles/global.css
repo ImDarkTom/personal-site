@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 @source inline("fill-olive-900"); /* Always bundle headline fill color */
 
 @theme inline {

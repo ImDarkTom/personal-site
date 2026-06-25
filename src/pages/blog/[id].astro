@@ -1,0 +1,76 @@
+---
+import { Font } from 'astro:assets'
+import '../../styles/global.css'
+import { getCollection, render } from 'astro:content';
+import Analytics from '@vercel/analytics/astro'
+
+import Prose from '../../components/Prose.astro';
+
+// Required
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post => ({
+        params: { id: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const {
+    id: blogId,
+    data: {
+        title: blogTitle,
+        pubDate: blogPubDate
+    }
+} = post;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{blogTitle} | Thomas Malinovsky</title>
+
+		<meta name="description" content="Hi, I'm a UX-oriented full-stack developer based in Dublin, Ireland.">
+		<meta name="author" content="Thomas Malinovsky">
+		<meta name="robots" content="index, follow">
+		<meta name="theme-color" content="#31372b">
+
+		<link rel="canonical" href={`https://malinovsky.dev/blog/${blogId}`}>
+
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Thomas Malinovsky">
+		<meta property="og:title" content="Thomas Malinovsky">
+		<meta property="og:description" content="Hi, I'm a UX-oriented full-stack developer based in Dublin, Ireland.">
+		<meta property="og:url" content="https://malinovsky.dev">
+		<meta property="og:image" content="https://malinovsky.dev/favicon.png">
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:creator" content="@ImDarkTom">
+		<meta name="twitter:title" content="Thomas Malinovsky">
+		<meta name="twitter:description" content="Hi, I'm a UX-oriented full-stack developer based in Dublin, Ireland.">
+		<meta name="twitter:image" content="https://malinovsky.dev/favicon.png">
+		
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/favicon.png">
+		<link rel="mask-icon" href="/favicon.svg" color="#e4d7ab">
+
+		<meta name="generator" content={Astro.generator} />
+		<Font cssVariable='--font-inter' preload />
+		<Analytics />
+	</head>
+	<body class="bg-olive-900 text-cream-100">
+        <nav class="max-w-prose w-full mx-auto flex flex-row py-8 px-3">
+            <a href="/blogs">← Blogs</a>
+        </nav>
+        <Prose>
+            <h1>{blogTitle}</h1>
+            <time datetime={blogPubDate.toISOString()}>{blogPubDate.toLocaleDateString()}</time>
+            <Content />
+        </Prose>
+	</body>
+</html>

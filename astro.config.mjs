@@ -4,9 +4,13 @@ import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
+import { unified } from "@astrojs/markdown-remark";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://malinovsky.dev',
+  
   vite: {
     plugins: [tailwindcss()],
   },
@@ -22,4 +26,12 @@ export default defineConfig({
   ],
 
   integrations: [icon()],
+
+  markdown: {
+    processor: unified({
+      rehypePlugins: [
+        rehypeExternalLinks,
+      ]
+    })
+  }
 });
