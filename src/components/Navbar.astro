@@ -1,23 +1,57 @@
 ---
-import Favicon from "../../public/favicon.svg";
 import NavbarItem from "./ui/NavbarItem.astro";
 ---
 
-<header class="fixed w-full z-10 flex justify-center mt-4">
-    <nav class="bg-olive-800 inline-flex gap-4 p-2.5 pr-3 ring ring-inset ring-olive-700 rounded-xl shadow-olive-950 shadow-sm">
-        <NavbarItem 
-            href="#hero" 
-            class="hover:brightness-125">
-            <Favicon class="size-6 rounded-md" aria-label="Top" />
-        </NavbarItem>
-        <NavbarItem href="#about">
-            About
-        </NavbarItem>
-        <NavbarItem href="#projects">
-            Projects
-        </NavbarItem>
-        <NavbarItem href="#contact">
-            Contact
-        </NavbarItem>
+<header class="group fixed w-full z-10 flex justify-center mt-4">
+    <nav
+        class="bg-olive-700 inline-flex gap-4 py-2 px-3 ring ring-inset ring-olive-700 rounded-xl shadow-olive-950 shadow-sm"
+    >
+        <NavbarItem href="#about"> About </NavbarItem>
+        <NavbarItem href="#projects"> Projects </NavbarItem>
+        <NavbarItem href="#contact"> Contact </NavbarItem>
     </nav>
 </header>
+
+<script>
+    const sections = document.querySelectorAll("section[id]");
+    const links = document.querySelectorAll('header nav a[href^="#"]');
+
+    const lastId = sections[sections.length - 1]?.id;
+    let bandId: string | undefined;
+
+    function setActive(id: string) {
+        links.forEach((link) => {
+            if (link.getAttribute("href") === `#${id}`) {
+                link.setAttribute("data-active", "");
+            } else {
+                link.removeAttribute("data-active");
+            }
+        });
+    }
+
+    function update() {
+        const atBottom =
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 2;
+        const id = atBottom ? lastId : bandId;
+        if (id) setActive(id);
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) bandId = entry.target.id;
+            });
+            update();
+        },
+        {
+            rootMargin: "-30% 0px -60% 0px",
+            threshold: 0,
+        },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+</script>
