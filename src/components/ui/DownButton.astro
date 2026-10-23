@@ -6,14 +6,17 @@ import { Icon } from "astro-icon/components";
     id="down-arrow"
     href="#about"
     aria-label="Scroll down to about section"
-    class="fixed bottom-32 left-1/2 -translate-x-1/2 size-12 rounded-full bg-olive-300 flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 shadow-lg shadow-olive-950/40 z-10">
+    class="fixed bottom-32 left-1/2 -translate-x-1/2 size-12 rounded-full bg-olive-300 flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 shadow-lg shadow-olive-950/40 z-10"
+>
     <Icon name="mdi:arrow-down" class="text-olive-950 size-6" />
 </a>
 
 <style>
     #down-arrow {
         opacity: 1;
-        transition: opacity 0.2s ease-in-out, scale 0.2s ease-in-out;
+        transition:
+            opacity 0.2s ease-in-out,
+            scale 0.2s ease-in-out;
     }
 
     #down-arrow.fade-out {
@@ -23,15 +26,19 @@ import { Icon } from "astro-icon/components";
 </style>
 
 <script>
-    const downArrow = document.querySelector('#down-arrow');
+    const downArrow = document.querySelector("#down-arrow");
 
-    window.addEventListener('scroll', () => {
+    function handleScroll() {
         if (!downArrow) return;
 
         if (window.scrollY > 150) {
-            downArrow.classList.add('fade-out');
+            downArrow.classList.add("fade-out");
         } else {
-            downArrow.classList.remove('fade-out');
+            downArrow.classList.remove("fade-out");
         }
-    }, { passive: true });
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    handleScroll();
 </script>

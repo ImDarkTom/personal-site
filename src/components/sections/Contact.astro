@@ -1,24 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
 import ExternalLink from "../shared/ExternalLink.astro";
-
 ---
 
-<section id="contact" class="w-full pb-32 pt-4">
-    <h2>Contact</h2>
-
-    <div class="bg-olive-800 rounded-full my-2 px-2.5 p-1 ring ring-inset ring-olive-700/50 w-fit text-sm font-medium">
-        Available June - August
-    </div>
+<section id="contact" class="w-full pb-40 pt-4">
+    <h2 class="text-xl font-medium">Contact</h2>
 
     <p>
-        I'm currently in college studying CS and am open to summer internships, freelance work,
-        or any interesting projects to build. The best way to contact me is via email.
+        I'm currently in college studying computing and am open to summer
+        internships, freelance work, or any interesting projects to build. The
+        best way to contact me is via email.
     </p>
 
-    <div 
-        class="inline-flex flex-wrap gap-2 mt-4"
-        id="contact-items">
+    <div class="inline-flex flex-wrap gap-2 mt-4" id="contact-items">
         <a href="mailto:thomas@malinovsky.dev">
             <Icon name="mdi:email-outline" />
             <span>thomas@malinovsky.dev</span>
@@ -40,6 +34,6 @@ import ExternalLink from "../shared/ExternalLink.astro";
     @reference "../../styles/global.css";
 
     #contact-items a {
-        @apply bg-olive-700 flex flex-row gap-2 items-center text-sm p-2 rounded-lg ring ring-olive-600 ring-inset cursor-pointer select-none hover:bg-olive-600 transition-colors duration-200;
+        @apply bg-olive-800 flex flex-row gap-2 items-center text-sm py-1.5 px-2 rounded-lg ring ring-olive-700 ring-inset select-none hover:bg-olive-700 transition-colors duration-200;
     }
 </style>
