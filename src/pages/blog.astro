@@ -4,15 +4,28 @@ import LayoutBlog from "../layouts/LayoutBlog.astro";
 const posts = await getCollection("blog");
 ---
 
-<LayoutBlog>
-    <h1>Thomas Malinovsky's Blog</h1>
-    <ul>
+<LayoutBlog canonical={`https://malinovsky.dev/blog`}>
+    <h1 class="text-3xl font-bold tracking-tight mb-8">
+        Thomas Malinovsky's Blog
+    </h1>
+    <h2 class="text-2xl font-bold">Latest</h2>
+    <ul class="mt-4 flex flex-col gap-4">
         {
-        posts.map((post: any) => (
-            <li>
-                <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            </li>
-        ))
+            posts.map((post) => (
+                <li class="flex flex-col gap-0.5">
+                    <a
+                        class="text-olive-50 hover:underline text-lg"
+                        href={`/blog/${post.id}`}
+                    >
+                        {post.data.title}
+                    </a>
+                    <span class="text-xs text-olive-300">
+                        <time datetime={post.data.pubDate.toISOString()}>
+                            {post.data.pubDate.toLocaleDateString()}
+                        </time>
+                    </span>
+                </li>
+            ))
         }
     </ul>
 </LayoutBlog>
