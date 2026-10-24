@@ -2,15 +2,20 @@
     "redirects": [
         {
             "source": "/blog/:path*",
-            "has": [{ "type": "host", "value": "example.com" }],
-            "destination": "https://blog.example.com/:path*",
+            "has": [{ "type": "host", "value": "malinovsky.dev" }],
+            "destination": "https://blog.malinovsky.dev/:path*",
             "permanent": true
         }
     ],
     "rewrites": [
         {
-            "source": "/:path((?!_astro/|favicon).*)",
-            "has": [{ "type": "host", "value": "blog.example.com" }],
+            "source": "/",
+            "has": [{ "type": "host", "value": "blog.malinovsky.dev" }],
+            "destination": "/blog/"
+        },
+        {
+            "source": "/:path((?!_astro/|_vercel/|favicon|robots.txt|sitemap.xml).*)",
+            "has": [{ "type": "host", "value": "blog.malinovsky.dev" }],
             "destination": "/blog/:path"
         }
     ]
