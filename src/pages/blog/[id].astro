@@ -1,0 +1,46 @@
+---
+import { Font } from "astro:assets";
+import "../../styles/global.css";
+import { getCollection, render } from "astro:content";
+import Analytics from "@vercel/analytics/astro";
+
+import Prose from "../../components/Prose.astro";
+import LayoutBlog from "../../layouts/LayoutBlog.astro";
+
+// Required
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const {
+	id: blogId,
+	data: {
+		title: blogTitle,
+		pubDate: blogPubDate,
+		description: blogDescription,
+	},
+} = post;
+---
+
+<LayoutBlog
+	title={blogTitle}
+	description={blogDescription}
+	canonical={`https://malinovsky.dev/blog/${blogId}`}
+>
+	<div class="px-3">
+		<h1 class="text-3xl font-bold">{blogTitle}</h1>
+		<time class="text-olive-300" datetime={blogPubDate.toISOString()}
+			>{blogPubDate.toLocaleDateString()}</time
+		>
+	</div>
+	<Prose>
+		<Content />
+	</Prose>
+</LayoutBlog>

@@ -1,28 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/sections/Hero.astro';
-import About from '../components/sections/About.astro';
-import Projects from '../components/sections/Projects.astro';
-import Contact from '../components/sections/Contact.astro';
-import Footer from '../components/Footer.astro';
-import DownButton from '../components/ui/DownButton.astro';
-
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/sections/Hero.astro";
+import About from "../components/sections/About.astro";
+import Projects from "../components/sections/Projects.astro";
+import Contact from "../components/sections/Contact.astro";
+import Footer from "../components/Footer.astro";
+import DownButton from "../components/ui/DownButton.astro";
 ---
 
 <Layout>
-	<a href="#about" class="absolute top-0 left-0 p-2 text-olive-950 bg-cream-300 z-100 transform -translate-y-full focus:translate-y-0 transition">
+	<a
+		href="#about"
+		class="absolute top-0 left-0 p-2 text-olive-950 bg-cream-300 z-100 transform -translate-y-full focus:translate-y-0 transition"
+	>
 		Skip to content
 	</a>
 
 	<Navbar />
-	
+
 	<Hero />
 
 	<DownButton />
 
-	<main class="flex flex-col gap-8 p-4 max-w-3xl mx-auto">
+	<main class="flex flex-col gap-12 p-4 max-w-3xl mx-auto">
 		<About />
 		<Projects />
 		<Contact />

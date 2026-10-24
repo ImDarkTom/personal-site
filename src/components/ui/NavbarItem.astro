@@ -1,8 +1,11 @@
 ---
-
-const { href } = Astro.props;
+const { href, ...rest } = Astro.props;
 ---
 
-<a href={href} class="cursor-pointer hover:text-olive-300 font-semibold">
+<a
+    href={href}
+    class="transition-colors duration-150 text-olive-200 cursor-pointer hover:text-olive-50 font-medium border-b-2 not-data-active:border-transparent data-active:border-b-olive-50 data-active:text-olive-50"
+    {...rest}
+>
     <slot />
 </a>

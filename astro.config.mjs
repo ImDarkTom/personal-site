@@ -1,25 +1,33 @@
+import { unified } from '@astrojs/markdown-remark';
+import tailwindcss from '@tailwindcss/vite';
+import icon from 'astro-icon';
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
-
-import tailwindcss from "@tailwindcss/vite";
-
-import icon from "astro-icon";
+import { defineConfig, fontProviders } from 'astro/config';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()],
-  },
+    site: 'https://malinovsky.dev',
 
-  fonts: [
-    {
-      provider: fontProviders.fontsource(),
-      name: "Inter",
-      cssVariable: "--font-inter",
-      weights: ["100 900"],
+    vite: {
+        plugins: [tailwindcss()],
     },
-    // 'Viga' if we ever decide to have the headline text be actual text and not an SVG
-  ],
 
-  integrations: [icon()],
+    fonts: [
+        {
+            provider: fontProviders.fontsource(),
+            name: 'Inter',
+            cssVariable: '--font-inter',
+            weights: ['100 900'],
+        },
+        // 'Viga' if we ever decide to have the headline text be actual text and not an SVG
+    ],
+
+    integrations: [icon()],
+
+    markdown: {
+        processor: unified({
+            rehypePlugins: [rehypeExternalLinks],
+        }),
+    },
 });

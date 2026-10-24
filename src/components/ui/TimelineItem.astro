@@ -2,14 +2,13 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ExternalLink from "../shared/ExternalLink.astro";
-import ExternalIcon from "../shared/ExternalIcon.astro";
 
 interface Props {
     year: string;
     title: string;
     tags: string[];
     description: string;
-    image?: ImageMetadata;
+    image: ImageMetadata;
     live?: string;
     github?: string;
 }
@@ -17,46 +16,65 @@ interface Props {
 const { year, title, image, description, live, tags, github } = Astro.props;
 ---
 
-<li class="flex flex-col md:flex-row ring ring-cream-500 rounded-lg relative overflow-hidden">
-    { image && 
-        <Image 
-            src={image}
-            class="w-full h-auto md:w-auto md:max-w-88"
-            alt={`Preview for ${title}`} />
-    }
-    <div class="bg-cream-500 min-w-full min-h-px md:min-h-full md:min-w-px"></div>
+<li
+    class="flex flex-col md:flex-row ring ring-cream-500 rounded-lg relative overflow-hidden"
+>
+    <Image
+        src={image}
+        class="w-full h-auto md:w-auto md:max-w-88"
+        loading="lazy"
+        alt={`Preview for ${title}`}
+    />
+    <div class="bg-cream-500 min-w-full min-h-px md:min-h-full md:min-w-px">
+    </div>
     <div class="flex flex-col p-4">
-        <p class="text-cream-300">{year}</p>
-        <h3 class="text-xl font-semibold">
-            {title}
-        </h3>
-        <p class="pt-1 pb-2 text-sm text-cream-200">{description}</p>
-        <ul class="flex flex-row flex-wrap gap-2 overflow-y-auto">
-            {tags.map((tag) => (
-                <li class="bg-olive-800 rounded-full px-2.5 p-1 text-xs font-medium ring ring-inset ring-olive-700">
-                    {tag}
-                </li>
-            ))}
-        </ul>
-        <div class="flex flex-row gap-3 mt-4">
-            { live &&
-                <ExternalLink 
-                    href={live} 
-                    class="text-olive-200 inline-flex items-center">
-                    <Icon name="mdi:internet" class="mr-1" />
-                    <span>Live</span>
-                    <ExternalIcon />
-                </ExternalLink>
+        <div class="flex flex-row justify-between">
+            <h3 class="text-xl font-semibold">
+                {title}
+            </h3>
+            <p class="text-cream-300">{year}</p>
+        </div>
+        <ul class="flex flex-row flex-wrap gap-2 overflow-y-auto pt-1 pb-2">
+            {
+                tags.map((tag) => (
+                    <li class="bg-olive-800 rounded-full px-2.5 p-1 text-xs font-medium ring ring-inset ring-olive-700">
+                        {tag}
+                    </li>
+                ))
             }
-            { github && 
-                <ExternalLink
-                    href={github}
-                    class="text-cream-200 inline-flex items-center">
-                    <Icon name="mdi:github" class="mr-1" />
-                    <span>Source</span>
-                    <ExternalIcon />
-                </ExternalLink>
+        </ul>
+        <p class="text-sm text-cream-200">{description}</p>
+        <div class="flex flex-row gap-3 mt-auto">
+            {
+                live && (
+                    <ExternalLink
+                        href={live}
+                        class="timeline-item-link text-olive-100"
+                    >
+                        <Icon name="mdi:internet" />
+                        <span>Live</span>
+                    </ExternalLink>
+                )
+            }
+            {
+                github && (
+                    <ExternalLink
+                        href={github}
+                        class="timeline-item-link"
+                    >
+                        <Icon name="mdi:github" />
+                        <span>Source</span>
+                    </ExternalLink>
+                )
             }
         </div>
     </div>
 </li>
+
+<style>
+    @reference "../../styles/global.css";
+
+    .timeline-item-link {
+        @apply bg-olive-800 flex flex-row gap-2 items-center text-sm py-1.5 px-2 rounded-lg ring ring-olive-700 ring-inset select-none hover:bg-olive-700 transition-colors duration-200;
+    }
+</style>
