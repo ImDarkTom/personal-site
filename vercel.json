@@ -1,0 +1,17 @@
+{
+    "redirects": [
+        {
+            "source": "/blog/:path*",
+            "has": [{ "type": "host", "value": "example.com" }],
+            "destination": "https://blog.example.com/:path*",
+            "permanent": true
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/:path((?!_astro/|favicon).*)",
+            "has": [{ "type": "host", "value": "blog.example.com" }],
+            "destination": "/blog/:path"
+        }
+    ]
+}
