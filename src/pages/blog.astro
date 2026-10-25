@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import LayoutBlog from "../layouts/LayoutBlog.astro";
+import { BLOG_URL, blogHref } from "../consts";
 const posts = await getCollection("blog");
 ---
 
-<LayoutBlog canonical={`https://malinovsky.dev/blog`}>
+<LayoutBlog canonical={`${BLOG_URL}/`}>
     <h1 class="text-3xl font-bold tracking-tight mb-8">
         Thomas Malinovsky's Blog
     </h1>
@@ -15,7 +16,7 @@ const posts = await getCollection("blog");
                 <li class="flex flex-col gap-0.5">
                     <a
                         class="text-olive-50 hover:underline text-lg"
-                        href={`/blog/${post.id}`}
+                        href={blogHref(post.id)}
                     >
                         {post.data.title}
                     </a>

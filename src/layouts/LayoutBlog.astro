@@ -4,6 +4,7 @@ import "../styles/global.css";
 
 import Analytics from "@vercel/analytics/astro";
 import ExternalLink from "../components/shared/ExternalLink.astro";
+import { blogHref, siteHref } from "../consts";
 
 const { canonical, description, title } = Astro.props;
 
@@ -64,11 +65,11 @@ const isABlogPage = !!title;
 		>
 			{
 				isABlogPage ? (
-					<a href="/blog" class="hover:underline">
+					<a href={blogHref()} class="hover:underline">
 						← All Blogs
 					</a>
 				) : (
-					<a href="/" class="hover:underline">
+					<a href={siteHref()} class="hover:underline">
 						← Home
 					</a>
 				)

@@ -1,5 +1,6 @@
 ---
 import NavbarItem from "./ui/NavbarItem.astro";
+import { blogHref } from "../consts";
 ---
 
 <header class="group fixed w-full z-10 flex justify-center mt-4">
@@ -9,7 +10,7 @@ import NavbarItem from "./ui/NavbarItem.astro";
         <NavbarItem href="#about"> About </NavbarItem>
         <NavbarItem href="#projects"> Projects </NavbarItem>
         <NavbarItem href="#contact"> Contact </NavbarItem>
-        <NavbarItem href="/blog"> Blog </NavbarItem>
+        <NavbarItem href={blogHref()}> Blog </NavbarItem>
     </nav>
 </header>
 
