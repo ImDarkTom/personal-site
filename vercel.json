@@ -1,4 +1,11 @@
 {
+    "routes": [
+        {
+            "src": "/",
+            "has": [{ "type": "host", "value": "blog.malinovsky.dev" }],
+            "dest": "/blog/"
+        }
+    ],
     "redirects": [
         {
             "source": "/blog/:path*",
@@ -8,11 +15,6 @@
         }
     ],
     "rewrites": [
-        {
-            "source": "/",
-            "has": [{ "type": "host", "value": "blog.malinovsky.dev" }],
-            "destination": "/blog/"
-        },
         {
             "source": "/:path((?!_astro/|_vercel/|favicon|robots.txt|sitemap.xml).*)",
             "has": [{ "type": "host", "value": "blog.malinovsky.dev" }],
