@@ -6,6 +6,7 @@ import Analytics from "@vercel/analytics/astro";
 
 import Prose from "../../components/Prose.astro";
 import LayoutBlog from "../../layouts/LayoutBlog.astro";
+import { BLOG_URL } from "../../consts";
 
 // Required
 export async function getStaticPaths() {
@@ -32,7 +33,7 @@ const {
 <LayoutBlog
 	title={blogTitle}
 	description={blogDescription}
-	canonical={`https://malinovsky.dev/blog/${blogId}`}
+	canonical={`${BLOG_URL}/${blogId}`}
 >
 	<div class="px-3">
 		<h1 class="text-3xl font-bold">{blogTitle}</h1>
